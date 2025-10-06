@@ -1,0 +1,28 @@
+def atbash_cipher(text):
+    """Encrypts or decrypts text using the Atbash Cipher."""
+    result = ''
+    for char in text:
+        if char.isalpha():
+            if char.isupper():
+                
+                result += chr(ord('Z') - (ord(char) - ord('A')))
+            else:
+                
+                result += chr(ord('z') - (ord(char) - ord('a')))
+        else:
+           
+            result += char
+    return result
+
+
+# Main program 
+if __name__ == "__main__":
+    message = input("Enter your message: ")
+
+    # Encrypt (same as decrypt in Atbash)
+    encrypted = atbash_cipher(message)
+    print("Encrypted message:", encrypted)
+
+    # Decrypt to verify (running Atbash again restores the text)
+    decrypted = atbash_cipher(encrypted)
+    print("Decrypted message:", decrypted)
